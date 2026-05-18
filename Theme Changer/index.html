@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- font awesome cdn-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <title>Theme</title>
+</head>
+
+<body>
+    <h2 class="font-bold text-4xl text-center" id="h2">Theme</h2>
+    <div class="text-center mt-5 p-3">
+
+        <i id="theme" class="fa-solid fa-circle-half-stroke cursor-pointer"></i>
+    </div>
+    <script>
+        let darkMode = false;
+        const theme = document.getElementById('theme');
+        const h2 = document.getElementById('h2')
+        theme.addEventListener('click', function colorChange() {
+            darkMode = !darkMode;
+
+            if (darkMode) {
+                document.body.style.color = 'white'
+                document.body.style.backgroundColor = 'black'
+            }
+            else {
+                document.body.style.color = 'black'
+                document.body.style.backgroundColor = 'white'
+
+            }
+
+
+
+        })
+    </script>
+</body>
+
+</html>

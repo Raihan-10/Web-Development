@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://fonts.googleapis.com/css?family=Geist:100,200,300,regular,500,600,700,800,900"
+        rel="stylesheet" />
+    <!-- font awesome cdn -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+        integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        .font {
+            font-family: "Geist", sans-serif;
+        }
+
+        .states {
+            font: medium;
+            font-weight: 14px;
+            color: #323B49;
+        }
+    </style>
+
+    <title>Job Tracker</title>
+</head>
+
+<body class="font md:px-5 bg-[#F8FAFC]">
+
+    <div class="md:max-w-277.5 px-2  container mx-auto  py-7.5">
+        <!-- app name -->
+        <h2 class="font-bold text-[32px] leading-8 text-[#002C5C]">Job Application Tracker</h2>
+
+
+        <!-- states -->
+        <div class="states flex flex-col md:flex-row justify-center mt-5 gap-4">
+            <div class="total md:w-89.75 bg-white p-5">
+                <p class="states">Total</p>
+                <span class="text-[#002C5C] font-bold text-[24px]" id="state-total">0</span>
+            </div>
+            <div class="interview md:w-89.75 bg-white p-5">
+                <p class="states">Interview</p>
+                <span class="text-[#10B981] font-bold text-[24px]" id="state-interview">0</span>
+            </div>
+            <div class="rejected md:w-89.75 bg-white p-5">
+                <p class="states">Rejected</p>
+                <span class="text-[#EF4444] font-bold text-[24px]" id="state-rejected">0</span>
+            </div>
+        </div>
+        <hr class="text-[#E6E7E9] mt-7.5">
+    </div>
+
+    <!-- available jobs section -->
+    <div class="jobs md:max-w-277.5 md:px-0 px-2 container mx-auto ">
+
+        <div class="flex justify-between">
+            <h3 class="text-[#002C5C]  md:text-[20px] font-semibold ">Available Jobs</h3>
+            <p class="text-[#64748B] text-sm md:text-md"><span id="job-count">0</span> jobs</p>
+        </div>
+
+        <!-- buttons -->
+        <div class="btn  items-center flex flex-col md:flex-row md:gap-2 gap-3  mt-3 md:mt-6">
+            <button id="all-btn" onclick="switchTab(id)"
+                class="bg-[#3B82F6] w-full p-2 md:w-20 md:h-7.5 cursor-pointer rounded-sm font-semibold text-white col-span-full md:text-[12px]">All</button>
+
+            <button id="interview-btn" onclick="switchTab(id)"
+                class="cursor-pointer p-2 w-full md:text-[12px] md:w-20 md:h-7.5 rounded-sm bg-white font-medium text-[#64748B]">Interview</button>
+            <button id="rejected-btn" onclick="switchTab(id)"
+                class="cursor-pointer py-2 w-full md:w-20 md:h-7.5 rounded-sm bg-white font-medium text-[#64748B] md:text-[12px]">Rejected</button>
+        </div>
+    </div>
+
+
+    <!-- cards -->
+    <div class="card-container" id="card-container">
+        <div id="all-container">
+            <!-- card 1 -->
+            <div class="job-card md:max-w-277.5 rounded-lg container mx-auto md:max-h-700 bg-white mt-4 space-y-4" data-status="not-applied">
+                <div class="p-6 space-y-5">
+                    <div class="company flex justify-between ">
+
+                        <div>
+                            <h3 class="text-[18px] leading-6.5 font-semibold text-[#002C5C] mb-2">WebFlow Agency</h3>
+                            <!-- position -->
+                            <p class="text-[#64748B] leading-5.5">Web Designer & Developer</p>
+                        </div>
+
+                        <div
+                            class="flex justify-center items-center rounded-2xl border border-[#F1F2F4] h-8 w-8 cursor-pointer delete">
+                            <i
+                                class="fa-regular fa-trash-can  h-4 w-4 text-red-400 hover:text-red-500 hover:scale-110 pointer-events-none"></i>
+                        </div>
+                    </div>
+
+
+                    <!-- location -->
+                    <p class="text-[14px]  text-[#64748B] leading-5">Los Angeles, CA
+                        •
+                        Part-time
+                        •
+                        $80,000 - $120,000</p>
+                    <div class="">
+                        <button
+                            class="bg-[#EEF4FF] mb-2 text-[14px] font-medium leading-5 badge uppercase cursor-pointer text-[#002C5C] w-28.25 h-9.5 status">Not
+                            Applied</button>
+                        <p class="text[#323B49] text-[14px] leading-5">Create stunning web experiences for high-profile
+                            clients.
+                            Must have portfolio and experience with modern web design trends.</p>
+                    </div>
+
+
+                    <!-- interview and rejected btn -->
+                    <div class="space-x-2">
+                        <button
+                            class="interview cursor-pointer w-25 h-9 rounded-sm text-[#10B981] border border-[#10B981]font-semibold text-[14px] leading-5 hover:bg-[#10B981] hover:text-white">Interview</button>
+                        <button
+                            class="rejected cursor-pointer text-[#EF4444] rounded-sm border border-[#EF4444] font-semibold text-[14px] leading-5 w-25 h-9 hover:bg-[#EF4444] hover:text-white">Rejected
+
+                        </button>
+                    </div>
+
+
+                </div>
+            </div>
+
+            <!-- card 2 -->
+            <div class="job-card md:max-w-277 rounded-lg container mx-auto md:max-h-700 bg-white mt-4  space-y-4" data-status="not-applied">
+                <div class="p-6 space-y-5">
+                    <div class="company flex justify-between ">
+
+                        <div>
+                            <h3 class="text-[18px] leading-6.5 font-semibold text-[#002C5C] mb-2">PixelCraft Studio</h3>
+                            <!-- position -->
+                            <p class="text-[#64748B] leading-5.5">Frontend Developer</p>
+                        </div>
+
+                        <div class="flex justify-center items-center rounded-2xl border border-[#F1F2F4] h-8 w-8 delete cursor-pointer">
+                            <i
+                                class="fa-regular fa-trash-can  h-4 w-4 text-red-400 hover:text-red-500 hover:scale-110 pointer-events-none"></i>
+                        </div>
+                    </div>
+
+
+                    <!-- location -->
+                    <p class="text-[14px]  text-[#64748B] leading-5">New York, NY
+                        •
+                        Full-time
+                        •
+                        $90,000 - $120,000</p>
+                    <div class="">
+                        <button
+                            class="bg-[#EEF4FF] mb-2 text-[14px] font-medium leading-5 badge uppercase cursor-pointer text-[#002C5C] w-28.25 h-9.5 status">Not
+                            Applied</button>
+                        <p class="text[#323B49] text-[14px] leading-5">Build modern responsive interfaces using React
+                            and
+                            Tailwind CSS for startup and enterprise clients.</p>
+                    </div>
+
+
+                    <!-- interview and rejected btn -->
+                    <div class="space-x-2">
+                        <button
+                            class="interview cursor-pointer w-25 h-9 rounded-sm text-[#10B981] border border-[#10B981]font-semibold text-[14px] leading-5 hover:bg-[#10B981] hover:text-white">Interview</button>
+                        <button
+                            class="rejected cursor-pointer text-[#EF4444] rounded-sm border border-[#EF4444] font-semibold text-[14px] leading-5 w-25 h-9 hover:bg-[#EF4444] hover:text-white">Rejected
+
+                        </button>
+                    </div>
+
+
+                </div>
+            </div>
+
+             <!-- card 3 -->
+            <div class="job-card md:max-w-277 rounded-lg container mx-auto md:max-h-700 bg-white mt-4  space-y-4" data-status="not-applied">
+                <div class="p-6 space-y-5">
+                    <div class="company flex justify-between ">
+
+                        <div>
+                            <h3 class="text-[18px] leading-6.5 font-semibold text-[#002C5C] mb-2">NovaTech Solutions</h3>
+                            <!-- position -->
+                            <p class="text-[#64748B] leading-5.5">Frontend Developer</p>
+                        </div>
+
+                        <div class="flex justify-center items-center rounded-2xl border border-[#F1F2F4] h-8 w-8 delete cursor-pointer">
+                            <i
+                                class="fa-regular fa-trash-can  h-4 w-4 text-red-400 hover:text-red-500 hover:scale-110 pointer-events-none"></i>
+                        </div>
+                    </div>
+
+
+                    <!-- location -->
+                    <p class="text-[14px]  text-[#64748B] leading-5">New York, NY
+                        •
+                        Full-time
+                        •
+                        $90,000 - $120,000</p>
+                    <div class="">
+                        <button
+                            class="bg-[#EEF4FF] mb-2 text-[14px] font-medium leading-5 badge uppercase cursor-pointer text-[#002C5C] w-28.25 h-9.5 status">Not
+                            Applied</button>
+                        <p class="text[#323B49] text-[14px] leading-5">Build modern responsive interfaces using React
+                            and
+                            Tailwind CSS for startup and enterprise clients.</p>
+                    </div>
+
+
+                    <!-- interview and rejected btn -->
+                    <div class="space-x-2">
+                        <button
+                            class="interview cursor-pointer w-25 h-9 rounded-sm text-[#10B981] border border-[#10B981]font-semibold text-[14px] leading-5 hover:bg-[#10B981] hover:text-white">Interview</button>
+                        <button
+                            class="rejected cursor-pointer text-[#EF4444] rounded-sm border border-[#EF4444] font-semibold text-[14px] leading-5 w-25 h-9 hover:bg-[#EF4444] hover:text-white">Rejected
+
+                        </button>
+                    </div>
+
+
+                </div>
+            </div>
+           
+        </div>
+
+
+        <div class="hidden" id="interview-container">
+
+        </div>
+
+        <div class="hidden" id="rejected-container">
+
+
+        </div>
+    </div>
+
+
+
+    <!-- empty file -->
+    <div id="empty-state"
+        class="hidden flex flex-col px-10 py-15 items-center mt-4 justify-center md:max-w-277.5 rounded-lg container mx-auto bg-white">
+        <img class="w-25 h-25" src="./emptyFIle.png" alt="">
+        <div class="text-center">
+            <h3 class="text-[#002C5C] font-semibold md:text-[24px] leading-8 text-xl">No jobs available</h3>
+            <p class="leading-5.5 text-[#64748B] md:text-base">Check back soon for new job opportunities</p>
+        </div>
+    </div>
+
+    <script src="./index.js"></script>
+</body>
+
+</html>

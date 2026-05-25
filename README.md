@@ -17,8 +17,3 @@ Here I am showcasing all the projects related to web development I have done so 
 If you find this useful then you can ⭐star
  and 🥷 follow me also!
  I also want to collaborate, if you are interested, feel free to knock me!
-
-
-<marquee> 
-<h3> Follow 😂</h3>
-</marquee>
